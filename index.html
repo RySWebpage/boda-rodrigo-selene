@@ -77,7 +77,7 @@
         /* --- TRANSPORTE --- */
         .info-box { background-color: #F3F4F1; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0; }
 
-        /* --- TIMELINE (ESTILO MANTENIDO) --- */
+        /* --- TIMELINE --- */
         .timeline-wrapper {
             display: flex;
             align-items: stretch; 
@@ -112,7 +112,7 @@
         .event-time { font-weight: 700; color: var(--color-accent); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
         .event-title { margin-bottom: 5px; font-size: 1.3rem; }
 
-        /* --- RSVP SECTION (NUEVO) --- */
+        /* --- RSVP SECTION --- */
         .rsvp-container {
             background-color: var(--color-primary);
             color: white;
@@ -124,8 +124,8 @@
         .rsvp-container h2 { color: var(--color-accent); margin-bottom: 20px; font-size: 2.5rem; }
         .rsvp-text { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
         
-        /* Botón especial sólido para RSVP */
         .btn-solid {
+            display: inline-block; /* Asegura que el botón se comporte bien */
             background-color: var(--color-accent);
             color: white;
             padding: 15px 40px;
@@ -138,9 +138,38 @@
         .btn-solid:hover { background-color: transparent; border-color: var(--color-accent); color: var(--color-accent); }
 
 
-        /* --- REGALO --- */
+        /* --- REGALO (NUEVO DISEÑO CON IMÁGENES LATERALES) --- */
         .gift-section { text-align: center; }
-        .bank-details { background: white; padding: 30px; border: 1px dashed var(--color-primary); display: inline-block; margin-top: 20px; max-width: 600px; }
+        
+        /* Contenedor flexible para las 3 columnas (Img - Datos - Img) */
+        .gift-layout-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Estilo para las nuevas imágenes laterales */
+        .gift-side-image {
+            flex: 0 1 25%; /* Ocupan hasta un 25% del ancho */
+            max-width: 250px; /* Ancho máximo para que no sean enormes */
+        }
+        .gift-side-image img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            height: auto;
+        }
+
+        .bank-details {
+            flex: 1 1 auto; /* El cuadro de datos ocupa el espacio central */
+            background: white;
+            padding: 30px;
+            border: 1px dashed var(--color-primary);
+            max-width: 600px;
+            min-width: 300px; /* Ancho mínimo para que no se aplaste */
+        }
         .bank-data { font-family: monospace; font-size: 1.1rem; color: #333; display: block; margin-top: 5px;}
 
         /* --- CONTACTO --- */
@@ -155,11 +184,18 @@
         footer { background-color: var(--color-primary); color: rgba(255,255,255,0.8); text-align: center; padding: 40px 20px; font-size: 0.9rem; }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
             .hero h1 { font-size: 3rem; }
             .timeline-wrapper { flex-direction: column; align-items: center; }
             .timeline-image { flex: auto; width: 100%; margin-bottom: 30px; }
             .timeline-content { flex: auto; width: 100%; gap: 15px; }
+            
+            /* Ajuste Regalo en móvil: Imágenes debajo del texto */
+            .gift-layout-wrapper { flex-direction: column; gap: 20px; }
+            .bank-details { order: 1; width: 100%; max-width: 100%; }
+            .gift-side-image.left { order: 2; max-width: 80%; }
+            .gift-side-image.right { order: 3; max-width: 80%; }
+            
             .contact-grid { flex-direction: column; gap: 40px; }
         }
     </style>
@@ -268,12 +304,12 @@
 
     <section id="rsvp">
         <div class="rsvp-container">
-            <h2>RSVP</h2>
+            <h2>¡TE ESPERAMOS!</h2>
             <p class="rsvp-text">
                 Para nosotros es fundamental saber si podréis acompañarnos en este día tan especial.
                 <br>Por favor, confirmad vuestra asistencia antes del <strong>1 de Junio de 2026</strong>.
             </p>
-            <a href="https://forms.gle/epbg2oPeSausKBhj7" target="_blank" class="btn-solid">
+            <a href="PON_AQUI_TU_LINK_DE_GOOGLE_FORMS" target="_blank" class="btn-solid">
                 Confirmar Asistencia
             </a>
         </div>
@@ -287,13 +323,25 @@
             Prometemos que vuestro detalle se convertirá en experiencias inolvidables a vuestra salud.
         </p>
         
-        <div class="bank-details">
-            <p><strong>Número de Cuenta (IBAN):</strong></p>
-            <span class="bank-data">ESXX XXXX XXXX XXXX XXXX</span>
-            <br>
-            <p style="margin-top: 15px;"><strong>Bizum:</strong></p>
-            <span class="bank-data">645 423 182 (Rodrigo)</span>
-            <span class="bank-data">600 260 883 (Selene)</span>
+        <div class="gift-layout-wrapper">
+            
+            <div class="gift-side-image left">
+                <img src="japon.png" alt="Detalle decorativo">
+            </div>
+
+            <div class="bank-details">
+                <p><strong>Número de Cuenta (IBAN):</strong></p>
+                <span class="bank-data">ESXX XXXX XXXX XXXX XXXX</span>
+                <br>
+                <p style="margin-top: 15px;"><strong>Bizum:</strong></p>
+                <span class="bank-data">645 423 182 (Rodrigo)</span>
+                <span class="bank-data">600 260 883 (Selene)</span>
+            </div>
+
+            <div class="gift-side-image right">
+                <img src="maldivas.png" alt="Detalle decorativo">
+            </div>
+
         </div>
     </section>
 
@@ -335,4 +383,5 @@
 
 </body>
 </html>
+
 

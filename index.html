@@ -8,18 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE DISEÑO --- */
+        /* --- VARIABLES --- */
         :root {
-            --color-primary: #4A5D46; /* Verde Oliva */
-            --color-accent: #C5A059;  /* Dorado Mate */
-            --color-bg: #FAFAF8;      /* Crema Suave */
-            --color-text: #2C2C2C;    /* Gris Antracita */
+            --color-primary: #4A5D46;
+            --color-accent: #C5A059;
+            --color-bg: #FAFAF8;
+            --color-text: #2C2C2C;
             --color-white: #FFFFFF;
             --font-title: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
         }
 
-        /* --- RESET Y BASE --- */
+        /* --- BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: var(--font-body);
@@ -28,14 +28,9 @@
             line-height: 1.7;
             font-size: 16px;
         }
-
         img { max-width: 100%; height: auto; display: block; }
         a { text-decoration: none; transition: 0.3s; }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-title);
-            color: var(--color-primary);
-        }
+        h1, h2, h3, h4 { font-family: var(--font-title); color: var(--color-primary); }
         
         .section-title {
             font-size: 2.2rem;
@@ -43,28 +38,21 @@
             margin-bottom: 50px;
             position: relative;
         }
-        
         .section-title::after {
-            content: '❧'; 
-            display: block;
-            font-size: 1.5rem;
-            color: var(--color-accent);
-            margin-top: 10px;
+            content: '❧'; display: block; font-size: 1.5rem; color: var(--color-accent); margin-top: 10px;
         }
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
 
-        section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* --- HERO (CABECERA) --- */
+        /* --- HERO (CABECERA CORREGIDA) --- */
         .hero {
             height: 100vh;
-            /* AQUÍ BUSCA TU FOTO LLAMADA 'portada.jpg' */
-            /* Si no la encuentra, mostrará un color gris de fondo */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('portada.jpg'); 
-            background-color: #666; 
+            /* IMPORTANTE: He puesto una imagen de ejemplo.
+               Cuando subas TU foto 'portada.jpg' a GitHub, cambia esta línea por:
+               background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('portada.jpg'); 
+            */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop');
+            
+            background-color: #666; /* Color de fondo si falla la imagen */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -75,90 +63,47 @@
             color: var(--color-white);
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--color-white);
-            line-height: 1.1;
-            margin: 20px 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-date {
-            font-size: 1.4rem;
-            margin-top: 10px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
-            padding: 10px 20px;
-        }
+        .hero h1 { font-size: 4rem; color: var(--color-white); line-height: 1.1; margin: 20px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-date { font-size: 1.4rem; margin-top: 10px; font-weight: 300; letter-spacing: 2px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 10px 20px; }
 
         /* --- HISTORIA --- */
-        .story-text {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            color: #444;
-        }
+        .story-text { text-align: center; max-width: 750px; margin: 0 auto; font-size: 1.05rem; color: #444; }
 
-        /* --- TARJETAS --- */
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .location-card {
-            background: var(--color-white);
-            padding: 40px 20px;
-            border: 1px solid #e5e5e5;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
+        /* --- UBICACIONES --- */
+        .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .location-card { background: var(--color-white); padding: 40px 20px; border: 1px solid #e5e5e5; text-align: center; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; }
         .card-icon { font-size: 2.5rem; display: block; margin-bottom: 15px; }
         .card-title { font-size: 1.5rem; margin-bottom: 10px; }
         .card-desc { font-size: 0.95rem; margin-bottom: 20px; color: #666; }
-
-        /* --- BOTONES GENERALES --- */
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            margin-top: auto;
-        }
+        .btn { display: inline-block; padding: 10px 25px; border: 1px solid var(--color-primary); color: var(--color-primary); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; border-radius: 50px; margin-top: auto; }
         .btn:hover { background-color: var(--color-primary); color: white; }
         .btn.disabled { border-color: #ccc; color: #999; pointer-events: none; }
 
-        /* --- TIMELINE --- */
+        /* --- TIMELINE (AJUSTE DE ALTURA) --- */
         .timeline-wrapper {
             display: flex;
-            align-items: flex-start;
+            /* 'stretch' fuerza a que ambos lados midan lo mismo de alto */
+            align-items: stretch; 
             justify-content: center;
             gap: 50px;
+            /* Altura mínima para asegurar que se ve bien */
+            min-height: 600px; 
         }
 
         .timeline-image {
             flex: 1;
             max-width: 450px;
-            position: sticky;
-            top: 20px;
+            /* Quitamos sticky, ahora queremos que se estire */
+            display: flex;
         }
 
         .timeline-image img {
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            /* Estos 3 comandos hacen la magia para que la imagen rellene el hueco */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
         }
 
         .timeline-content {
@@ -166,102 +111,40 @@
             max-width: 500px;
             display: flex;
             flex-direction: column;
+            /* 'space-between' distribuye las tarjetas uniformemente */
+            justify-content: space-between; 
             gap: 20px;
         }
 
-        .event-card {
-            background: white;
-            padding: 25px;
-            border-left: 4px solid var(--color-accent);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .event-time {
-            font-weight: 700;
-            color: var(--color-accent);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 5px;
-        }
-
+        .event-card { background: white; padding: 25px; border-left: 4px solid var(--color-accent); box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-radius: 0 8px 8px 0; }
+        .event-time { font-weight: 700; color: var(--color-accent); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
         .event-title { margin-bottom: 5px; font-size: 1.3rem; }
+
+        /* --- TRANSPORTE --- */
+        .info-box { background-color: #F3F4F1; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0; }
 
         /* --- REGALO --- */
         .gift-section { text-align: center; }
-        .bank-details {
-            background: white;
-            padding: 30px;
-            border: 1px dashed var(--color-primary);
-            display: inline-block;
-            margin-top: 20px;
-            max-width: 600px;
-        }
+        .bank-details { background: white; padding: 30px; border: 1px dashed var(--color-primary); display: inline-block; margin-top: 20px; max-width: 600px; }
         .bank-data { font-family: monospace; font-size: 1.1rem; color: #333; display: block; margin-top: 5px;}
 
-        /* --- CONTACTO SUTIL --- */
-        .contact-section {
-            text-align: center;
-            background-color: var(--color-white);
-            padding: 60px 20px;
-            border-top: 1px solid #eee;
-            margin-top: 50px;
-        }
-
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .contact-person h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        /* Botones de contacto elegantes */
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            color: #555;
-            font-size: 0.9rem;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-            transform: translateY(-2px);
-        }
+        /* --- CONTACTO --- */
+        .contact-section { text-align: center; background-color: var(--color-white); padding: 60px 20px; border-top: 1px solid #eee; margin-top: 50px; }
+        .contact-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 30px; }
+        .contact-person h3 { margin-bottom: 15px; font-size: 1.3rem; }
+        .contact-links { display: flex; gap: 15px; justify-content: center; }
+        .contact-btn { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid #ddd; border-radius: 4px; color: #555; font-size: 0.9rem; background: white; transition: all 0.3s ease; }
+        .contact-btn:hover { border-color: var(--color-primary); color: var(--color-primary); transform: translateY(-2px); }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: var(--color-primary);
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
+        footer { background-color: var(--color-primary); color: rgba(255,255,255,0.8); text-align: center; padding: 40px 20px; font-size: 0.9rem; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 800px) {
             .hero h1 { font-size: 3rem; }
-            .timeline-wrapper { flex-direction: column; }
-            .timeline-image { position: static; max-width: 100%; margin-bottom: 20px; }
+            /* En móvil, volvemos a poner la imagen encima del texto y quitamos la altura forzada */
+            .timeline-wrapper { flex-direction: column; align-items: center; min-height: auto; }
+            .timeline-image { max-width: 100%; margin-bottom: 30px; height: 300px; /* Altura fija en móvil para que no sea enorme */ }
             .contact-grid { flex-direction: column; gap: 40px; }
         }
     </style>
@@ -327,7 +210,7 @@
         
         <div class="timeline-wrapper">
             <div class="timeline-image">
-                <img src="cronograma.jpg" alt="Detalle Boda">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" alt="Detalle Boda">
             </div>
 
             <div class="timeline-content">
@@ -361,7 +244,7 @@
     </section>
 
     <section id="transporte">
-        <div style="background-color: #F3F4F1; padding: 40px; border-radius: 10px; text-align: center;">
+        <div class="info-box">
             <span style="font-size: 2.5rem;">🚌</span>
             <h3>Transporte</h3>
             <p>Habrá servicio de autobuses organizado. Puntos de recogida por confirmar.</p>
@@ -423,5 +306,5 @@
     </footer>
 
 </body>
-
 </html>
+
